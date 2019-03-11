@@ -19,8 +19,10 @@ namespace ConsoleApp3
             e1.TotalDeposit = 1;
             e1.StartEventDate = new DateTime(2019,2,12);
             e1.IsLive = true;
-            //e1.NamePattern.Id = 500;
-            //e1.NamePattern.Pattern = "pattern1";
+            var np1 = new NamePattern(1, "pattern1");
+            e1.NamePattern.Id = np1.Id;
+            e1.NamePattern.Pattern = np1.Pattern;
+            
 
             var e2 = new Event();
             e2.Id = "1";
@@ -30,8 +32,9 @@ namespace ConsoleApp3
             e2.TotalDeposit = 1;
             e2.StartEventDate = new DateTime(2019, 2, 12);
             e2.IsLive = true;
-            //e2.NamePattern.Id = 500;
-            //e2.NamePattern.Pattern = "pattern1";
+            var np2 = new NamePattern(1, "pattern1");
+            e2.NamePattern.Id = np2.Id;
+            e2.NamePattern.Pattern = np2.Pattern;
 
             var e3 = new Event();
             e3.Id = "1";
@@ -41,15 +44,20 @@ namespace ConsoleApp3
             e3.TotalDeposit = 1;
             e3.StartEventDate = new DateTime(2019, 2, 12);
             e3.IsLive = true;
-            //e3.NamePattern.Id = 500;
-            //e3.NamePattern.Pattern = "pattern3";
+            var np3 = new NamePattern(3, "pattern3");
+            e3.NamePattern.Id = np3.Id;
+            e3.NamePattern.Pattern = np3.Pattern;
 
             var result1 = e1.Equals(e2);
             Console.WriteLine(result1);
             var result2 = e1.Equals(e3);
             Console.WriteLine(result2);
 
-            ConsoleApp3.Api.Event[] array1 = new ConsoleApp3.Api.Event[3];
+           Api.Event[] array1 = new Api.Event[3];
+            array1[0] = e1;
+            array1[1] = e2;
+            array1[2] = e3;
+
 
         }
     }

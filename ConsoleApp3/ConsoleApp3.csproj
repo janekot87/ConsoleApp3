@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="Api\Event.cs" />
     <Compile Include="LiveGameState.cs" />
+    <Compile Include="Mapper.cs" />
     <Compile Include="NamePattern.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -6,16 +6,17 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp3
 {
-    class LiveGameState
+    public enum ClockDirection
+    {
+        Stopwatch,
+        Timer
+    }
+    public class LiveGameState
     {
         public bool ClockRunning { get; set; }
 
         public int? GameTime { get; set; }
 
-        public enum ClockDirection
-        {
-            Stopwatch,
-            Timer
-        }
-    }
+       public ClockDirection ClockDirection { get; set; }
+    } 
 }

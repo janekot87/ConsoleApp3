@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp3.Streaming
 {
-    class Event
+    public class Event
     {
         public string Id { get; set; }
 

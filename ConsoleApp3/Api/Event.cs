@@ -2,7 +2,7 @@
 
 namespace ConsoleApp3.Api
 {
-    class Event : IEquatable<Event>
+    public class Event : IEquatable<Event>
     {
         public string Id { get; set; }
 
@@ -35,15 +35,6 @@ namespace ConsoleApp3.Api
             if (this.IsLive != e.IsLive) return false;
 
             return true;
-            //return this.Id == e.Id &&
-            //       this.Type == e.Type &&
-            //       this.EventName == e.EventName &&
-            //       this.TotalBets == e.TotalBets &&
-            //       this.TotalDeposit == e.TotalDeposit &&
-            //       this.StartEventDate == e.StartEventDate &&
-            //       this.IsLive == e.IsLive &&
-            //       this.LiveGameState.ClockRunning == e.LiveGameState.ClockRunning
-            //    ;
         }
     }
 }

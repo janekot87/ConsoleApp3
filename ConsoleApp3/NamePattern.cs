@@ -6,10 +6,17 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp3
 {
-    class NamePattern
+    public class NamePattern
     {
         public int Id { get; set; }
 
         public string Pattern { get; set; }
+
+        public NamePattern(int id, string pattern)
+        {
+            Id = id;
+            Pattern = pattern;
+        }
     }
+
 }
