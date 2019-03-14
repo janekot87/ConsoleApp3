@@ -21,19 +21,21 @@ namespace ConsoleApp3.Api
         public LiveGameState LiveGameState { get; set; }
 
         public NamePattern NamePattern { get; set; }
+        
 
         
 
         public bool Equals (Event e)
         {
-            if (this.Id != e.Id) return false;
+            if (!this.Id.Equals(e.Id)) return false;
             if (this.Type != e.Type) return false;
             if (this.EventName != e.EventName) return false;
             if (this.TotalBets != e.TotalBets) return false;
             if (this.TotalDeposit != e.TotalDeposit) return false;
             if (this.StartEventDate != e.StartEventDate) return false;
             if (this.IsLive != e.IsLive) return false;
-
+            if (!this.LiveGameState.Equals(e.LiveGameState)) return false;
+            if (!this.NamePattern.Equals(e.NamePattern)) return false;
             return true;
         }
     }

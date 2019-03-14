@@ -11,7 +11,9 @@ namespace ConsoleApp3
     {
         static void Main(string[] args)
         {
-            var e1 = new Event();
+            Event e1;
+            e1 = new Event();
+            
             e1.Id = "1";
             e1.Type = "Fixture";
             e1.EventName = "First";
@@ -19,9 +21,13 @@ namespace ConsoleApp3
             e1.TotalDeposit = 1;
             e1.StartEventDate = new DateTime(2019,2,12);
             e1.IsLive = true;
-            var np1 = new NamePattern(1, "pattern1");
-            e1.NamePattern.Id = np1.Id;
-            e1.NamePattern.Pattern = np1.Pattern;
+            e1.NamePattern = new NamePattern(1, "one");
+            e1.LiveGameState = new LiveGameState();
+            e1.LiveGameState.GameTime = 1;
+            e1.LiveGameState.ClockRunning = false;
+            e1.LiveGameState.ClockDirection = ClockDirection.Timer;
+
+           
             
 
             var e2 = new Event();
