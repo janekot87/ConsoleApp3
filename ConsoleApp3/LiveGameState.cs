@@ -8,10 +8,9 @@ namespace ConsoleApp3
 {
     public enum ClockDirection
     {
-        Stopwatch =2,
-        Timer=4
+        Stopwatch,
+        Timer
     }
-    
     public class LiveGameState
     {
         public bool ClockRunning { get; set; }
@@ -23,6 +22,8 @@ namespace ConsoleApp3
        public bool Equal(LiveGameState state)
        {
            if (ClockDirection != state.ClockDirection) return false;
+           if (ClockRunning != state.ClockRunning) return false;
+           if (GameTime != state.GameTime) return false;
            return true;
        }
     } 

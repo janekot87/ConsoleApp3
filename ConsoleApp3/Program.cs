@@ -38,9 +38,11 @@ namespace ConsoleApp3
             e2.TotalDeposit = 1;
             e2.StartEventDate = new DateTime(2019, 2, 12);
             e2.IsLive = true;
-            var np2 = new NamePattern(1, "pattern1");
-            e2.NamePattern.Id = np2.Id;
-            e2.NamePattern.Pattern = np2.Pattern;
+            e2.NamePattern = new NamePattern(1, "one");
+            e2.LiveGameState = new LiveGameState();
+            e2.LiveGameState.GameTime = 1;
+            e2.LiveGameState.ClockRunning = false;
+            e2.LiveGameState.ClockDirection = ClockDirection.Timer;
 
             var e3 = new Event();
             e3.Id = "1";
@@ -50,9 +52,11 @@ namespace ConsoleApp3
             e3.TotalDeposit = 1;
             e3.StartEventDate = new DateTime(2019, 2, 12);
             e3.IsLive = true;
-            var np3 = new NamePattern(3, "pattern3");
-            e3.NamePattern.Id = np3.Id;
-            e3.NamePattern.Pattern = np3.Pattern;
+            e3.NamePattern = new NamePattern(1, "one");
+            e3.LiveGameState = new LiveGameState();
+            e3.LiveGameState.GameTime = 1;
+            e3.LiveGameState.ClockRunning = false;
+            e3.LiveGameState.ClockDirection = ClockDirection.Stopwatch;
 
             var result1 = e1.Equals(e2);
             Console.WriteLine(result1);
