@@ -17,6 +17,10 @@ namespace ConsoleApp3
             Id = id;
             Pattern = pattern;
         }
+        public NamePattern()
+        {
+          
+        }
         
         public bool Equals(NamePattern pattern)
         {

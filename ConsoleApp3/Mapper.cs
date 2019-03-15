@@ -9,9 +9,19 @@ namespace ConsoleApp3
 {
    public static class Mapper
     {
-        public static void Map (Event e)
+        public static Streaming.Event Map (Api.Event e)
         {
             var evtStr = new Streaming.Event();
+            evtStr.Id = e.Id;
+            evtStr.Type = e.Type;
+            evtStr.EventName = e.EventName;
+            evtStr.TotalBets = e.TotalBets;
+            evtStr.TotalDeposit = e.TotalDeposit;
+            evtStr.StartEventDate = e.StartEventDate;
+            evtStr.NamePattern = new NamePattern();
+            evtStr.NamePattern.Id = e.NamePattern.Id;
+            evtStr.NamePattern.Pattern = e.NamePattern.Pattern;
+            return evtStr;
         }
     }
 }

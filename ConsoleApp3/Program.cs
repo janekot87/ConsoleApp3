@@ -63,10 +63,21 @@ namespace ConsoleApp3
             var result2 = e1.Equals(e3);
             Console.WriteLine(result2);
 
-           Api.Event[] array1 = new Api.Event[3];
-            array1[0] = e1;
-            array1[1] = e2;
-            array1[2] = e3;
+           Api.Event[] arrayApi = new Api.Event[3];
+            arrayApi[0] = e1;
+            arrayApi[1] = e2;
+            arrayApi[2] = e3;
+
+           var evtStr1 =  Mapper.Map(e1);
+           var evtStr2 = Mapper.Map(e2);
+           var evtStr3 = Mapper.Map(e3);
+  
+            
+            Streaming.Event[] arrayStreaming = new Streaming.Event[3];
+            arrayStreaming[0] = evtStr1;
+            arrayStreaming[1] = evtStr2;
+            arrayStreaming[2] = evtStr2;
+
 
 
         }
