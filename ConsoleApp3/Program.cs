@@ -68,15 +68,11 @@ namespace ConsoleApp3
             arrayApi[1] = e2;
             arrayApi[2] = e3;
 
-           var evtStr1 =  Mapper.Map(e1);
-           var evtStr2 = Mapper.Map(e2);
-           var evtStr3 = Mapper.Map(e3);
-  
-            
+           
             Streaming.Event[] arrayStreaming = new Streaming.Event[3];
-            arrayStreaming[0] = evtStr1;
-            arrayStreaming[1] = evtStr2;
-            arrayStreaming[2] = evtStr2;
+            arrayStreaming[0] = Mapper.Map(e1);
+            arrayStreaming[1] = Mapper.Map(e2);
+            arrayStreaming[2] = Mapper.Map(e3);
 
 
 

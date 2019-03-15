@@ -18,9 +18,7 @@ namespace ConsoleApp3
             evtStr.TotalBets = e.TotalBets;
             evtStr.TotalDeposit = e.TotalDeposit;
             evtStr.StartEventDate = e.StartEventDate;
-            evtStr.NamePattern = new NamePattern();
-            evtStr.NamePattern.Id = e.NamePattern.Id;
-            evtStr.NamePattern.Pattern = e.NamePattern.Pattern;
+            evtStr.NamePattern = e.NamePattern;
             return evtStr;
         }
     }
