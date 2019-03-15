@@ -19,7 +19,7 @@ namespace ConsoleApp3
 
        public ClockDirection ClockDirection { get; set; }
 
-       public bool Equal(LiveGameState state)
+       public bool Equals(LiveGameState state)
        {
            if (ClockDirection != state.ClockDirection) return false;
            if (ClockRunning != state.ClockRunning) return false;

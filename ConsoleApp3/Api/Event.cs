@@ -28,12 +28,12 @@ namespace ConsoleApp3.Api
         public bool Equals (Event e)
         {
             if (!this.Id.Equals(e.Id)) return false;
-            if (this.Type.Equals(e.Type)) return false;
-            if (this.EventName.Equals(e.EventName)) return false;
-            if (this.TotalBets.Equals(e.TotalBets)) return false;
-            if (this.TotalDeposit.Equals(e.TotalDeposit)) return false;
-            if (this.StartEventDate.Equals(e.StartEventDate)) return false;
-            if (this.IsLive.Equals(e.IsLive)) return false;
+            if (!this.Type.Equals(e.Type)) return false;
+            if (!this.EventName.Equals(e.EventName)) return false;
+            if (!this.TotalBets.Equals(e.TotalBets)) return false;
+            if (!this.TotalDeposit.Equals(e.TotalDeposit)) return false;
+            if (!this.StartEventDate.Equals(e.StartEventDate)) return false;
+            if (!this.IsLive.Equals(e.IsLive)) return false;
             if (!this.LiveGameState.Equals(e.LiveGameState)) return false;
             if (!this.NamePattern.Equals(e.NamePattern)) return false;
             return true;

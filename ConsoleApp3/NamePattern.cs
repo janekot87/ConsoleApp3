@@ -18,9 +18,9 @@ namespace ConsoleApp3
             Pattern = pattern;
         }
         
-        public bool Equal(NamePattern pattern)
+        public bool Equals(NamePattern pattern)
         {
-            if ( Id!= pattern.Id) return false;
+            if ( Id != pattern.Id) return false;
             if (Pattern != pattern.Pattern) return false;
             return true;
         }
