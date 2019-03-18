@@ -27,10 +27,7 @@ namespace ConsoleApp3
             e1.LiveGameState.ClockRunning = false;
             e1.LiveGameState.ClockDirection = ClockDirection.Timer;
 
-           
-            
-
-            var e2 = new Event();
+           var e2 = new Event();
             e2.Id = "1";
             e2.Type = "Fixture";
             e2.EventName = "First";
@@ -68,12 +65,14 @@ namespace ConsoleApp3
             arrayApi[1] = e2;
             arrayApi[2] = e3;
 
+          
            
             Streaming.Event[] arrayStreaming = new Streaming.Event[3];
-            arrayStreaming[0] = Mapper.Map(e1);
-            arrayStreaming[1] = Mapper.Map(e2);
-            arrayStreaming[2] = Mapper.Map(e3);
-
+          
+            for (int i = 0; i < arrayStreaming.Length; i++)
+            {
+                arrayStreaming[i] = Mapper.Map(arrayApi[i]);
+            }
 
 
         }
