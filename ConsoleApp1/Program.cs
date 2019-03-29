@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ConsoleApp1
 {
@@ -18,16 +19,12 @@ namespace ConsoleApp1
                 allEvents.Add(evt2);
                 allEvents.Add(evt3);
 
-            List<Event> evtlive = new List<Event>();
-            foreach (var i in allEvents)
-            {
-                if (i.IsLive)
-                {
-                    evtlive.Add(i);
-                    
-                }
+       
 
-            }
+           var evtlive = allEvents
+               .Where(r => r.IsLive)
+               .ToList();
+           
             Console.WriteLine("Live Events list");
             foreach (var x in evtlive)
               {
@@ -42,11 +39,8 @@ namespace ConsoleApp1
 
               }
 
-            List<string> evtNames = new List<string>();
-            foreach (var i in allEvents)
-            {
-                evtNames.Add(i.Name);
-            }
+        
+            var evtNames = allEvents.Select(e => e.Name).ToList();
 
             Console.WriteLine("Event names list");
 
@@ -57,15 +51,10 @@ namespace ConsoleApp1
             }
             Console.WriteLine();
 
-            List<Event> evtFuture = new List<Event>();
-            foreach (var b in allEvents)
-            {
-                if (b.StartDate > DateTime.Now)
-                {
-                    evtFuture.Add(b);
-                }
-
-            }
+      
+           var evtFuture = allEvents
+               .Where(a => a.StartDate > DateTime.Now)
+               .ToList();
 
             Console.WriteLine("Pre-match Events list");
             foreach (var x in evtFuture)
