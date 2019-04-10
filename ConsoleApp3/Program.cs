@@ -11,70 +11,104 @@ namespace ConsoleApp3
     {
         static void Main(string[] args)
         {
-            Event e1;
-            e1 = new Event();
-            
-            e1.Id = "1";
-            e1.Type = "Fixture";
-            e1.EventName = "First";
-            e1.TotalBets = 1;
-            e1.TotalDeposit = 1;
-            e1.StartEventDate = new DateTime(2019,2,12);
-            e1.IsLive = true;
-            e1.NamePattern = new NamePattern(1, "one");
-            e1.LiveGameState = new LiveGameState();
-            e1.LiveGameState.GameTime = 1;
-            e1.LiveGameState.ClockRunning = false;
-            e1.LiveGameState.ClockDirection = ClockDirection.Timer;
 
-           var e2 = new Event();
-            e2.Id = "1";
-            e2.Type = "Fixture";
-            e2.EventName = "First";
-            e2.TotalBets = 1;
-            e2.TotalDeposit = 1;
-            e2.StartEventDate = new DateTime(2019, 2, 12);
-            e2.IsLive = true;
-            e2.NamePattern = new NamePattern(1, "one");
-            e2.LiveGameState = new LiveGameState();
-            e2.LiveGameState.GameTime = 1;
-            e2.LiveGameState.ClockRunning = false;
-            e2.LiveGameState.ClockDirection = ClockDirection.Timer;
+            int action = 0;
+            List<Event> events = new List<Event>();
+            do
+            {
+                action = ChooseAction();
+                DoAction(action, events);
+            } while (action != 0);
+        }
 
-            var e3 = new Event();
-            e3.Id = "1";
-            e3.Type = "Fixture";
-            e3.EventName = "First";
-            e3.TotalBets = 1;
-            e3.TotalDeposit = 1;
-            e3.StartEventDate = new DateTime(2019, 2, 12);
-            e3.IsLive = true;
-            e3.NamePattern = new NamePattern(1, "one");
-            e3.LiveGameState = new LiveGameState();
-            e3.LiveGameState.GameTime = 1;
-            e3.LiveGameState.ClockRunning = false;
-            e3.LiveGameState.ClockDirection = ClockDirection.Stopwatch;
+        private static void DoAction(int action, List<Event> events)
+        {
+            switch (action)
+            {
+                case 1:
 
-            var result1 = e1.Equals(e2);
-            Console.WriteLine(result1);
-            var result2 = e1.Equals(e3);
-            Console.WriteLine(result2);
+                    events.Add(Event.GetEvent());
+                    break;
+                case 2:
 
-           Api.Event[] arrayApi = new Api.Event[3];
-            arrayApi[0] = e1;
-            arrayApi[1] = e2;
-            arrayApi[2] = e3;
+                    PrintArray(events);
 
-          
-           
-            Streaming.Event[] arrayStreaming = new Streaming.Event[3];
-          
+                    break;
+                case 3:
+                    var result1 = events[1].Equals(events[2]);
+                    Console.WriteLine(result1);
+                    var result2 = events[1].Equals(events[3]);
+                    Console.WriteLine(result2);
+
+                    var arrayStreaming = GetStreamingArray(events);
+
+                    break;
+
+                case 0:
+                    break;
+
+                default:
+                    Console.WriteLine(String.Format("Unknown action: {0}", action));
+                    break;
+            }
+        }
+
+        private static Streaming.Event[] GetStreamingArray(List<Event> events)
+        {
+            Streaming.Event[] arrayStreaming = new Streaming.Event[events.Count];
+
             for (int i = 0; i < arrayStreaming.Length; i++)
             {
-                arrayStreaming[i] = Mapper.Map(arrayApi[i]);
+                arrayStreaming[i] = Mapper.Map(events[i]);
             }
 
+            return arrayStreaming;
+        }
 
+        private static void PrintArray(List<Event> events)
+        {
+            foreach (var api in events)
+            {
+                Console.WriteLine(api.Id);
+                Console.WriteLine(api.Type);
+                Console.WriteLine(api.EventName);
+                Console.WriteLine(api.TotalBets);
+                Console.WriteLine(api.TotalDeposit);
+                Console.WriteLine(api.StartEventDate);
+                Console.WriteLine(api.IsLive);
+                Console.WriteLine(api.LiveGameState.GameTime);
+                Console.WriteLine(api.LiveGameState.ClockRunning);
+                Console.WriteLine(api.LiveGameState.ClockDirection);
+                Console.WriteLine(api.NamePattern.Id);
+                Console.WriteLine(api.NamePattern.Pattern);
+            }
+        }
+
+        private static int ChooseAction()
+        {
+            var isInputOk = false;
+            int action2 = 0;
+            while (!isInputOk)
+            {
+                Console.WriteLine("1 - Add event to list \r\n");
+                Console.WriteLine("2 - Print events list \r\n");
+                Console.WriteLine("3 - Map events \r\n");
+                Console.WriteLine("0 - Exit \r\n");
+                try
+                {
+                    Console.WriteLine("Enter the action number: ");
+                    action2 = Int32.Parse(Console.ReadLine());
+                    isInputOk = true;
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Entered action is incorrect");
+                    Console.ReadLine();
+                    Console.Clear();
+                }
+            }
+
+            return action2;
         }
     }
 }

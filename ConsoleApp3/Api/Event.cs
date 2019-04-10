@@ -38,5 +38,30 @@ namespace ConsoleApp3.Api
             if (!this.NamePattern.Equals(e.NamePattern)) return false;
             return true;
         }
+        
+        public static Event GetEvent()
+        {
+            var evt = new Event();
+
+
+            Console.WriteLine("Enter Event Id: ");
+            evt.Id = Console.ReadLine();
+            Console.WriteLine("Enter Event Type: ");
+            evt.Type = Console.ReadLine();
+            Console.WriteLine("Enter Event Name: ");
+            evt.EventName = Console.ReadLine();
+            Console.WriteLine("Enter Event TotalBets: ");
+            evt.TotalBets = long.Parse(Console.ReadLine());
+            evt.StartEventDate = new DateTime(2019,2,12);
+            evt.IsLive = true;
+            evt.NamePattern = new NamePattern(1, "one");
+            evt.LiveGameState = new LiveGameState();
+            evt.LiveGameState.GameTime = 1;
+            evt.LiveGameState.ClockRunning = false;
+            evt.LiveGameState.ClockDirection = ClockDirection.Timer;
+         
+            return evt;
+            
+        }
     }
 }
